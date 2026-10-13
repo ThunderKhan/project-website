@@ -108,6 +108,6 @@ export const footerNav: NavLink[] = [...navLinks,{label:"Instagram",href:INSTAGR
 
 export const footerLegal: NavLink[] = [];
 
-export const copyrightLine = "© 2026 Kabir Kollective · Website concept preview. Official content and media subject to approval."; not an official band website.";
+export const copyrightLine = "© 2026 Kabir Kollective · Website concept preview. Official content and media subject to approval.";
 
 export const toastMessage = "Preview only — no enquiry was sent. Booking integration will be added after approval.";
