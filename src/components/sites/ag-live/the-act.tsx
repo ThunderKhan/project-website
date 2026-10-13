@@ -23,7 +23,7 @@ export function TheAct() {
           {stats.map((stat) => (
             <div className="stat-cell" key={stat.label}>
               <span className="stat-num" data-target={stat.target} data-suffix={stat.suffix}>
-                0
+                {stat.target}{stat.suffix}
               </span>
               <span className="stat-label">{stat.label}</span>
             </div>
