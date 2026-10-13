@@ -1,182 +1,30 @@
 "use client";
-
-import { useCallback, useEffect, useRef, useState } from "react";
-
-import { RevealTitle } from "./reveal-title";
-import { fetchBookedDates } from "./supabase-read";
-
-const MONTH_NAMES = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-] as const;
-
-const DAY_HEADERS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
-
-const SWIPE_THRESHOLD = 50;
-
-type View = { month: number; year: number };
-
-type Loaded = { key: string; status: "ready" | "error"; days: number[] };
-
-function daysInMonth(month: number, year: number) {
-  return new Date(year, month, 0).getDate();
-}
-
-function firstDayOfWeek(month: number, year: number) {
-  return new Date(year, month - 1, 1).getDay();
-}
-
-const EMPTY: Loaded = { key: "", status: "ready", days: [] };
-
-export function AvailabilityCalendar() {
-  const [today] = useState(() => new Date());
-  const [view, setView] = useState<View>(() => ({
-    month: new Date().getMonth() + 1,
-    year: new Date().getFullYear(),
-  }));
-
-  // The in-flight status is derived from which month the loaded result belongs
-  // to, so switching months shows "Loading…" without an extra render pass.
-  const [loaded, setLoaded] = useState<Loaded>(EMPTY);
-  const viewKey = `${view.year}-${view.month}`;
-  const status = loaded.key === viewKey ? loaded.status : "loading";
-  const bookedDates = new Set(loaded.key === viewKey ? loaded.days : []);
-
-  const touchStartX = useRef<number | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    fetchBookedDates(view.year, view.month, controller.signal).then((result) => {
-      if (controller.signal.aborted) return;
-      setLoaded({
-        key: viewKey,
-        status: result.ok ? "ready" : "error",
-        days: result.ok ? result.data : [],
-      });
-    });
-
-    return () => controller.abort();
-  }, [view.year, view.month, viewKey]);
-
-  const step = useCallback((delta: number) => {
-    setView((current) => {
-      let month = current.month + delta;
-      let year = current.year;
-      if (month < 1) {
-        month = 12;
-        year -= 1;
-      } else if (month > 12) {
-        month = 1;
-        year += 1;
-      }
-      return { month, year };
-    });
-  }, []);
-
-  const isCurrentMonth =
-    today.getFullYear() === view.year && today.getMonth() + 1 === view.month;
-  const todayDate = isCurrentMonth ? today.getDate() : -1;
-
-  const total = daysInMonth(view.month, view.year);
-  const offset = firstDayOfWeek(view.month, view.year);
-
-  return (
-    <section id="ag-calendar" aria-labelledby="cal-h">
-      <p className="section-eyebrow">Availability • Demo</p>
-      <RevealTitle id="cal-h" lines={["Plan Your", "Event."]} />
-
-      <div className="cal-wrap">
-        <div className="cal-header">
-          <button
-            type="button"
-            id="cal-prev"
-            className="cal-nav-btn"
-            aria-label="Previous month"
-            onClick={() => step(-1)}
-          >
-            &#8592;
-          </button>
-          <span className="cal-month-title" id="cal-month-title">
-            {`${MONTH_NAMES[view.month - 1]} ${view.year}`}
-          </span>
-          <button
-            type="button"
-            id="cal-next"
-            className="cal-nav-btn"
-            aria-label="Next month"
-            onClick={() => step(1)}
-          >
-            &#8594;
-          </button>
-        </div>
-
-        <div className="cal-days-header">
-          {DAY_HEADERS.map((day) => (
-            <span key={day}>{day}</span>
-          ))}
-        </div>
-
-        <div
-          className="cal-grid"
-          id="cal-grid"
-          onTouchStart={(event) => {
-            touchStartX.current = event.changedTouches[0].clientX;
-          }}
-          onTouchEnd={(event) => {
-            const start = touchStartX.current;
-            touchStartX.current = null;
-            if (start === null) return;
-            const dx = event.changedTouches[0].clientX - start;
-            if (Math.abs(dx) < SWIPE_THRESHOLD) return;
-            step(dx < 0 ? 1 : -1);
-          }}
-        >
-          {status === "loading" ? (
-            <p className="cal-loading">Loading&hellip;</p>
-          ) : null}
-
-          {status === "error" ? <p className="cal-loading">Could not load.</p> : null}
-
-          {status === "ready"
-            ? Array.from({ length: offset + total }, (_, index) => {
-                const day = index - offset + 1;
-                if (day < 1) return <div className="cal-cell" key={`blank-${index}`} />;
-
-                const classes = ["cal-day"];
-                classes.push(bookedDates.has(day) ? "booked" : "available");
-                if (day === todayDate) classes.push("today-mark");
-
-                return (
-                  <div className="cal-cell" key={day}>
-                    <div className={classes.join(" ")}>{day}</div>
-                  </div>
-                );
-              })
-            : null}
-        </div>
-
-        <div className="cal-legend">
-          <div className="cal-legend-item">
-            <div className="cal-legend-dot booked" />
-            Date not verified
-          </div>
-          <div className="cal-legend-item">
-            <div className="cal-legend-dot available" />
-            Not verified
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+import {useState} from "react";
+import {RevealTitle} from "./reveal-title";
+import {BOOKING_PHONE} from "./content";
+const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+export function AvailabilityCalendar(){
+ const [now]=useState(()=>new Date());
+ const [view,setView]=useState(()=>new Date(now.getFullYear(),now.getMonth(),1));
+ const [selected,setSelected]=useState<string|null>(null);
+ const y=view.getFullYear(),m=view.getMonth(),offset=new Date(y,m,1).getDay(),total=new Date(y,m+1,0).getDate();
+ const step=(n:number)=>setView(new Date(y,m+n,1));
+ const dateLabel=selected?new Date(selected+"T12:00:00").toLocaleDateString("en-IN",{day:"numeric",month:"long",year:"numeric"}):"your preferred date";
+ const whatsapp="https://wa.me/"+BOOKING_PHONE.replace(/\D/g,"")+"?text="+encodeURIComponent("Hello Kabir Kollective, I would like to enquire about a live performance on "+dateLabel+". Please share availability and booking details.");
+ return <section id="ag-calendar" aria-labelledby="cal-h" className="kabir-calendar">
+ <p className="section-eyebrow">Plan an Event</p><RevealTitle id="cal-h" lines={["Choose a Date.","Start a Conversation."]}/>
+ <p className="fusion-intro">Select a preferred event date to start an enquiry. This calendar is a demo and does not indicate confirmed availability.</p>
+ <div className="cal-wrap"><div className="cal-header">
+ <button type="button" className="cal-nav-btn" aria-label="Previous month" onClick={()=>step(-1)}>←</button><span className="cal-month-title">{months[m]} {y}</span>
+ <button type="button" className="cal-nav-btn" aria-label="Next month" onClick={()=>step(1)}>→</button></div>
+ <div className="cal-days-header">{days.map(d=><span key={d}>{d}</span>)}</div>
+ <div className="cal-grid">{Array.from({length:offset+total},(_,i)=>{
+ const day=i-offset+1;if(day<1)return <div className="cal-cell" key={`blank-${i}`}/>;
+ const iso=`${y}-${String(m+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+ const isPast=new Date(y,m,day)<new Date(now.getFullYear(),now.getMonth(),now.getDate());
+ return <div className="cal-cell" key={iso}><button type="button" disabled={isPast} aria-pressed={selected===iso} onClick={()=>setSelected(iso)} className={`cal-day kabir-cal-day ${selected===iso?"is-selected":""}`}>{day}</button></div>;
+ })}</div>
+ <div className="kabir-calendar-actions"><p>{selected?`Preferred date: ${dateLabel}`:"Select a date to enquire about availability."}</p><a className="btn-primary" href={whatsapp} target="_blank" rel="noopener noreferrer">Ask about this date ↗</a></div>
+ <p className="kabir-calendar-disclaimer">Dates are not live availability. Opening WhatsApp does not confirm a booking.</p>
+ </div></section>}

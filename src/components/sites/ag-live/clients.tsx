@@ -1,10 +1,10 @@
 import {RevealTitle} from "./reveal-title";
-export function Clients(){return <section id="clients" aria-labelledby="clients-h">
-<p className="section-eyebrow">Collaborations & Credibility</p>
-<RevealTitle id="clients-h" lines={["The Story Is","Just Beginning."]}/>
-<p className="clients-intro">This section reserves space for verified performances, partners, press features and client testimonials. The finished site will show only approved credentials.</p>
+import {INSTAGRAM_URL} from "./content";
+export function Clients(){return <section id="clients" aria-labelledby="clients-h" className="kabir-credibility">
+<p className="section-eyebrow">Our Journey</p><RevealTitle id="clients-h" lines={["Made to Be", "Experienced."]}/>
+<p className="clients-intro">Kabir Kollective brings live music to weddings, corporate celebrations and festivals. The brand's approved photographs, collaborations and testimonials will be featured here as the final site takes shape.</p>
 <div className="concept-credentials">
-<div><strong>LIVE SHOWS</strong><span>Performance history to be supplied</span></div>
-<div><strong>COLLABORATIONS</strong><span>Approved partners to be supplied</span></div>
-<div><strong>PRESS & REVIEWS</strong><span>Verified mentions to be supplied</span></div>
+<div><strong>SUFI NIGHT</strong><span>Past Kabir Kollective event · 2025</span><a href="https://in.bookmyshow.com/events/sufi-night-kabir-kollective/ET00440850" target="_blank" rel="noopener noreferrer">See event listing ↗</a></div>
+<div><strong>GUZAARISH</strong><span>Past Kabir Kollective event · 2025</span><a href="https://in.bookmyshow.com/events/guzaarish-by-kabir-kollective/ET00450665" target="_blank" rel="noopener noreferrer">See event listing ↗</a></div>
+<div><strong>STAY CONNECTED</strong><span>Performance clips, updates and latest band moments</span><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Follow on Instagram ↗</a></div>
 </div></section>}

@@ -49,3 +49,73 @@
 @media(max-width:860px){.fusion-nav{height:74px}.fusion-links{display:none}.fusion-menu-toggle{display:flex;align-items:center}.fusion-links.is-open{display:flex;position:absolute;left:0;right:0;top:74px;transform:none;flex-direction:column;align-items:stretch;gap:0;background:#111;box-shadow:0 30px 60px #000a;padding:18px 28px 26px}.fusion-links.is-open button{text-align:left;padding:18px 6px;border-bottom:1px solid #ffffff15}.fusion-pagination{right:9px}.fusion-counter{right:13px}.fusion-media-grid{grid-template-columns:1fr}.fusion-ticket-card{flex-direction:column;align-items:start}.concept-credentials{grid-template-columns:1fr}}
 @media(max-width:540px){.fusion-slide>section{padding-top:100px}.fusion-slide #hero{padding-top:0}.fusion-wordmark{font-size:20px}.fusion-media{min-height:300px}.fusion-media>div{bottom:22px;left:20px}.fusion-tickets .section-title,.fusion-music .section-title{font-size:clamp(48px,10vw,78px)}}
 @media(prefers-reduced-motion:reduce){.fusion-slide,.fusion-media img{transition-duration:0ms!important}}
+
+/* Kabir Kollective brand implementation — gold wordmark, venue-agnostic cinematic stage */
+.ag-live #hero.kabir-hero{background:radial-gradient(ellipse at 65% 45%,#392919 0%,#130f0d 45%,#07080a 83%)!important;isolation:isolate;min-height:100%;padding-left:clamp(24px,6vw,100px)}
+.kabir-hero-stage{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.kabir-hero-stage::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 85px,#c39a4c08 86px),linear-gradient(125deg,transparent 35%,#e4b56d06 55%,transparent 78%);opacity:.75}
+.kabir-stage-light{position:absolute;border-radius:50%;filter:blur(3px);mix-blend-mode:screen;opacity:.65}
+.kabir-light-one{width:65vw;height:105vh;right:-18vw;top:-25vh;background:radial-gradient(ellipse,#ae693155 0%,#69452225 25%,transparent 68%);transform:rotate(-18deg)}
+.kabir-light-two{width:42vw;height:75vh;right:15vw;bottom:-44vh;background:radial-gradient(ellipse,#db9d4328,transparent 70%)}
+.kabir-stage-arc{position:absolute;border:1px solid #b9945633;border-radius:50%;width:min(80vh,57vw);height:min(80vh,57vw);right:-7vw;top:17vh;box-shadow:0 0 0 40px #b9945607,0 0 0 105px #b9945605}
+.ag-live .kabir-hero .hero-overlay{background:linear-gradient(90deg,#08080830 0%,transparent 65%),linear-gradient(0deg,#080808b8,transparent 38%)}
+.kabir-hero-content{max-width:1200px!important;width:100%;padding-top:50px}
+.kabir-brand-kicker{display:flex;gap:18px;align-items:center;margin-bottom:20px}
+.kabir-brand-kicker img{width:72px;height:72px;object-fit:cover;border-radius:50%;border:1px solid #d5ab5d33}
+.kabir-kicker-location{display:block;font:500 10px Arial,sans-serif;letter-spacing:.3em;color:#d6b881;margin-bottom:9px}
+.ag-live .kabir-brand-kicker .hero-eyebrow{margin:0!important;font-size:10px;letter-spacing:.22em;color:#d6ac6d}
+.ag-live .kabir-hero-title{font-size:clamp(66px,11.5vw,154px);line-height:.83;color:#f0dfb8;letter-spacing:-.045em;text-shadow:0 5px 35px #0008}
+.ag-live .kabir-hero-title .line:last-child{font-size:.68em;letter-spacing:.012em;line-height:1.1;color:#d5a858}
+.ag-live .kabir-hero .hero-subtitle{max-width:570px;font-size:clamp(14px,1.3vw,18px);color:#e0d5c3dd;line-height:1.65}
+.kabir-hero-instagram{display:inline-block;margin-top:25px;font:500 11px Arial,sans-serif;color:#d4ae72!important;letter-spacing:.13em;text-decoration:none;border-bottom:1px solid #d4ae7270;padding-bottom:7px}
+.kabir-hero-instagram:hover{color:#fff0cf!important}
+.ag-live .fusion-wordmark{display:flex;align-items:center;gap:8px;font-size:22px;line-height:.92;letter-spacing:.08em;color:#e0be7e}
+.fusion-wordmark img{height:45px;width:45px;object-fit:contain;flex:none;border-radius:50%}
+.ag-live .fusion-wordmark small{font-size:9px;letter-spacing:.3em;margin-top:6px;color:#e8d5a6}
+.kabir-act-art{background:radial-gradient(ellipse at center,#362419,#090909 70%);min-height:620px}
+.kabir-act-poster{height:620px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:36px;border:1px solid #b3894640}
+.kabir-act-poster img{height:clamp(190px,24vw,290px)!important;width:clamp(190px,24vw,290px)!important;border-radius:50%;object-fit:contain}
+.kabir-poster-overline,.kabir-poster-bottom{font:11px Arial,sans-serif;letter-spacing:.25em;color:#e1bc7e}
+.kabir-act-art .act-photo-cap{background:#080808b8}
+.kabir-facts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:29px 0}
+.kabir-facts div{padding-bottom:16px;border-bottom:1px solid #a4824644}
+.kabir-facts strong{display:block;font:500 16px Georgia,serif;letter-spacing:.04em;color:#e9c78d}
+.kabir-facts span{display:block;font:12px Arial,sans-serif;color:#a39b91;margin-top:5px}
+.kabir-inline-link{display:inline-block;margin-top:26px;color:#e3b76d;text-decoration:none;border-bottom:1px solid #caa2678a;padding-bottom:7px}
+.ag-live .kabir-band-section{padding:130px 6vw 95px;background:#0d0b0b}
+.kabir-band-editorial{display:grid;grid-template-columns:minmax(220px,1fr) 1.2fr;gap:35px;margin-top:48px}
+.kabir-band-signature{background:radial-gradient(ellipse at center,#302418,#080808 70%);border:1px solid #b2883333;min-height:360px;display:flex;align-items:center;justify-content:center;gap:15px;flex-direction:column}
+.kabir-band-signature img{max-width:58%;object-fit:contain;border-radius:50%}
+.kabir-band-signature span{font:10px Arial,sans-serif;color:#c9a16c;letter-spacing:.2em}
+.kabir-band-details{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kabir-band-details>div{padding:20px;border-bottom:1px solid #b2883333}
+.kabir-band-details span{display:block;font:12px Arial,sans-serif;color:#c99b58}
+.kabir-band-details strong{display:block;font:400 22px Georgia,serif;color:#ebd2a5;margin:12px 0}
+.kabir-band-details p{color:#aca397;font:14px/1.6 Arial,sans-serif}
+.kabir-band-details .btn-ghost{align-self:end;justify-self:start;height:fit-content}
+.kabir-media-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:25px}
+.kabir-media-card{position:relative;min-height:390px;overflow:hidden;border:1px solid #b2883340;padding:35px;display:flex;justify-content:space-between;flex-direction:column;text-decoration:none;color:#ebd8ae;background:radial-gradient(ellipse at 75% 20%,#895a2a55,transparent 55%),linear-gradient(135deg,#130e0d,#2f1c16)}
+.kabir-media-card--bollywood{background:radial-gradient(ellipse at 65% 20%,#a253433f,transparent 58%),linear-gradient(135deg,#100e15,#2c1a20)}
+.kabir-media-card::before{content:"";position:absolute;border:1px solid #d7aa5a22;width:350px;height:350px;border-radius:50%;right:-120px;top:-110px;transition:transform .5s}
+.kabir-media-card:hover::before{transform:scale(1.3)}
+.kabir-media-index{font:11px Arial,sans-serif;letter-spacing:.19em;color:#c4a16c}
+.kabir-media-script{font-style:italic;color:#bc9d71}
+.kabir-media-card h3{font:400 clamp(42px,5vw,69px)/.95 var(--font-ag-display),Georgia,serif;margin:14px 0;color:#f1dbaf}
+.kabir-media-card p{font:12px Arial,sans-serif;letter-spacing:.12em;color:#f3d9ae}
+.kabir-media-note{color:#8e877f;font:12px/1.7 Arial,sans-serif;margin:25px 0 0}
+.kabir-past-events{margin-top:50px}.kabir-past-events>a{display:grid;grid-template-columns:90px 1fr auto;gap:22px;text-decoration:none;padding:22px 0;border-bottom:1px solid #ad864b44;color:#ecdbc0;align-items:center}
+.kabir-past-events>a span,.kabir-past-events>a small{font:11px Arial,sans-serif;color:#ad9a83}.kabir-past-events>a strong{font:400 clamp(19px,2vw,27px) var(--font-ag-display),Georgia,serif}
+.kabir-ticket-bottom{font-size:13px;color:#aaa095;margin-top:26px}.kabir-ticket-bottom a{color:#dbb66b}
+.concept-credentials a{font:12px Arial,sans-serif;color:#d4af70;margin-top:12px;text-decoration:none}
+.kabir-calendar .fusion-intro{max-width:700px}.kabir-cal-day{border:1px solid #ae895355!important;background:#ffffff04!important;color:#efe4d4!important;cursor:pointer!important}
+.kabir-cal-day:hover:not(:disabled),.kabir-cal-day.is-selected{background:#b58d46!important;color:#100e0b!important}
+.kabir-cal-day:disabled{opacity:.25;cursor:not-allowed!important}
+.kabir-calendar-actions{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:24px}.kabir-calendar-actions p{color:#e5c89a;font-size:13px}
+.kabir-calendar-disclaimer{color:#8e8980;font:12px/1.7 Arial,sans-serif;text-align:center;margin-top:25px}
+.kabir-book-shortcut{margin-top:30px}.kabir-book-shortcut p{max-width:400px;color:#ad9f8d;font:12px/1.7 Arial,sans-serif;margin:15px 0}
+.kabir-footer-emblem{border-radius:50%;margin:0 auto 20px}.kabir-footer-tag{font:11px Arial,sans-serif;letter-spacing:.22em;color:#bcac90;margin:25px 0}
+.kabir-footer-actions{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin:25px 0}
+.kabir-footer-actions a{color:#d8b879;font:12px Arial,sans-serif;text-decoration:none}
+@media(max-width:900px){.kabir-act-art{min-height:420px}.kabir-act-poster{height:420px}.kabir-brand-kicker img{width:58px;height:58px}}
+@media(max-width:760px){.ag-live .kabir-hero-title{font-size:clamp(65px,13vw,100px)}.ag-live .kabir-hero-title .line:last-child{font-size:.62em}.kabir-brand-kicker{margin-bottom:16px}.kabir-band-editorial,.kabir-media-grid{grid-template-columns:1fr}.kabir-band-details{grid-template-columns:1fr 1fr}.kabir-media-card{min-height:290px}.kabir-past-events>a{grid-template-columns:1fr;gap:8px}.kabir-calendar-actions{flex-direction:column;align-items:start}}
+@media(max-width:480px){.ag-live #hero.kabir-hero{padding-bottom:55px!important}.kabir-hero-content{padding-top:60px}.ag-live .kabir-hero-title{font-size:clamp(58px,15vw,80px)!important}.ag-live .kabir-hero-title .line:last-child{font-size:.55em}.kabir-hero .hero-actions{gap:12px;margin-top:22px}.kabir-hero .hero-subtitle{margin-top:20px}.kabir-brand-kicker img{width:54px;height:54px}.kabir-brand-kicker{gap:11px}.kabir-kicker-location,.ag-live .kabir-brand-kicker .hero-eyebrow{font-size:8px}.kabir-band-details{grid-template-columns:1fr}}

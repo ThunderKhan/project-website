@@ -1,23 +1,27 @@
-# MEHFIL — Sufi–Bollywood Band Client Concept
+# Kabir Kollective — Sufi & Bollywood Live Band Website
 
-**Client-facing design prototype, not an official band website.**
+Client-oriented demonstration site for **Kabir Kollective**, a Mumbai-based Sufi/Bollywood live band.
 
-- [Music portfolio](https://github.com/hardik0924/music-portfolio): adapted hero, artist story, band formats, gallery, date calendar and enquiry-form components.
-- [SANAM clone](https://github.com/ThunderKhan/sanam-clone): adapted centered navigation and index-driven, full-height upward-covering slide interaction.
-- [Target repository](https://github.com/ThunderKhan/project-website).
+- Portfolio structure and section layouts adapted from [hardik0924/music-portfolio](https://github.com/hardik0924/music-portfolio).
+- Full-screen upward-covering section transitions and centered navigation adapted from [ThunderKhan/sanam-clone](https://github.com/ThunderKhan/sanam-clone).
+- Brand/logo and booking details supplied by the client via their public Instagram profile [@kabirkollective](https://www.instagram.com/kabirkollective/). The logo in `public/brand/` is a compressed crop of the user-provided social profile screenshot; request original vector artwork for production.
+- Music, events, and tour section structures are functional. Upcoming show dates are not invented. Past event links are labelled closed.
+- Real enquiry CTAs open WhatsApp for the published contact number **+91 86928 98694**. The demo form is intentionally not connected to an inbox and gives an explicit preview-only message. No live booking/availability claims.
 
-## Scrolling and interactions
-Slide `i+1` translates from Y=100% to 0% above the stationary slide `i` in 800ms. Reverse navigation moves the current slide downward to reveal the previous slide. Slides with overflowing content are internally scrollable; only when the user scrolls to the boundary does it advance to another slide. Keyboard, mobile swipe, nav links and section dots are supported. Reduced motion is respected.
+## Development
 
-## Run locally
-```sh
+```bash
 npm install
 npm run dev
 npm run build
 ```
-Next.js 16 / React 19 / TypeScript.
 
-## Preview-only content
-The band name **MEHFIL** is temporary. Images and video use remote **reference media** hosted by the public `music-portfolio` repository. They are not client-owned assets; license or replace before launch. Concert dates, ticketing provider connections, verified testimonials/press/clients and actual booking submission are intentionally left unconfigured rather than invented. The sample booking form displays an on-screen confirmation only; no email is sent. The reference artist's Supabase database is not contacted. Calendar dates are NOT verified availability.
+Next.js 16, React 19, TypeScript. Slide navigation supports wheel, touch, keyboard, dot pagination, and anchor links. Taller slides scroll internally before progressing.
 
-This concept includes original integration code and adapted source components. Review media/branding licenses before production use.
+## Before client launch
+
+Replace the screenshot-derived logo with client-supplied vector/transparent artwork and add approved photos and video files. Connect forms, ticket provider, actual calendars and band lineup information only with verified data. The preview is marked non-indexable.
+
+## Source and rights
+
+This work is an **adaptation/mockup**, not an original implementation of the two reference sites. Source-component ownership and any third-party rights remain with their respective owners. Do not treat the demonstration as a grant to reuse reference art or music commercially.

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { bandFormats, contactItems, eventTypes, toastMessage } from "./content";
+import { bandFormats, contactItems, eventTypes, toastMessage, WHATSAPP_URL } from "./content";
 import { RevealTitle } from "./reveal-title";
 import { ThankYouToast } from "./thank-you-toast";
 
@@ -49,6 +49,7 @@ export function Book() {
             </li>
           ))}
         </ul>
+        <div className="kabir-book-shortcut"><a className="btn-primary" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp for bookings ↗</a><p>For an actual enquiry, contact Kabir Kollective directly at +91 86928 98694. The form here is a UI preview only.</p></div>
       </div>
 
       <div>
@@ -136,7 +137,7 @@ export function Book() {
             </div>
 
             <button type="submit" className="form-submit">
-              Preview Enquiry &nbsp;&rarr;
+              Test Preview Form &nbsp;&rarr;
             </button>
           </div>
         </form>
