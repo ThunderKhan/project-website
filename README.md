@@ -25,3 +25,10 @@ Replace the screenshot-derived logo with client-supplied vector/transparent artw
 ## Source and rights
 
 This work is an **adaptation/mockup**, not an original implementation of the two reference sites. Source-component ownership and any third-party rights remain with their respective owners. Do not treat the demonstration as a grant to reuse reference art or music commercially.
+
+
+## Stock media in this demo
+
+The preview uses stock **illustrative** photos and an optional muted hero video, not Kabir Kollective performance footage. All images are served from Unsplash `images.unsplash.com`, and source photo IDs plus URLs are kept together in `src/components/sites/ag-live/content.ts`. Video reference: `https://assets.mixkit.co/videos/preview/mixkit-mic-on-stage-in-the-dark-41551-large.mp4` (Mixkit). See [Unsplash License](https://unsplash.com/license) and [Mixkit video license](https://mixkit.co/license/). The video falls back to a concert photograph if autoplay, user preferences, or network access prevents playback.
+
+Suggested image credits: Unsplash contributors via [Unsplash](https://unsplash.com/). Stock imagery is for conveying art direction; using recognizable performers as implied endorsements would require additional permissions. Replace with approved client-owned media before release. The website footer, hero and galleries label this as demonstration imagery.

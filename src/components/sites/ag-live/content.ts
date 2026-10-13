@@ -1,5 +1,16 @@
 export const SITE_URL = "https://www.instagram.com/kabirkollective/";
 export const BAND_NAME = "Kabir Kollective";
+/** Demo-only stock media; these do not depict Kabir Kollective. */
+export const demoMedia = {
+  "hero": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1800&q=82",
+  "act": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1100&q=83",
+  "sufi": "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1200&q=82",
+  "bollywood": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=82",
+  "band1": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
+  "band2": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&q=80",
+  "band3": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1100&q=80",
+  "heroVideo": "https://assets.mixkit.co/videos/preview/mixkit-mic-on-stage-in-the-dark-41551-large.mp4"
+} as const;
 export const INSTAGRAM_URL = "https://www.instagram.com/kabirkollective/";
 export const BOOKING_PHONE = "+918692898694";
 export const WHATSAPP_URL = "https://wa.me/918692898694?text=Hello%20Kabir%20Kollective%2C%20I%27d%20like%20to%20enquire%20about%20a%20live%20performance.";
